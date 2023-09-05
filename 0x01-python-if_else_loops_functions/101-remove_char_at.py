@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-# 101-remove_char_at.py
-
-
-def remove_char_at(str, g):
-if g < 0:
+def remove_char_at(str, n):
+if n >= 0:
+newstr = str[:n] + str[n + 1:]
+return (newstr)
+else:
 return (str)
-return (str[:g] + str[g+1:])
