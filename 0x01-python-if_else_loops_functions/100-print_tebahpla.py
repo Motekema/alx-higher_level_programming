@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 for h in range(ord('z'), ord('a') - 1, -1):
-    letters = chr(h)
-    uppercase_letter = letters.upper()
-    print("{}".format(uppercase_letter), end="")
+    letter = chr(h)
+    if letter.islower():
+        print("{}".format(letter), end="")
+        for h in range(ord('Z'), ord('A') - 1, -1):
+            print("{}".format(chr(h)), end="")
+            print()
