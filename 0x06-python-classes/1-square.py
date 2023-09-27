@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+"""Module documentation - Represents a square."""
 
 class Square:
-    """Represents a square."""
+    """Class documentation - Represents a square."""
 
     def __init__(self, size):
         """Initializes a new Square instance.
