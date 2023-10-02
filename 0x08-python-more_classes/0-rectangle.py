@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# This is a simple Python class that defines a rectangle.
+""" This is a simple Python class that defines a rectangle."""
 
 class Rectangle:
     """
