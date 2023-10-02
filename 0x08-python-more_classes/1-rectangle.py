@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-"""Rectangle module."""
-
 
 class Rectangle:
     """Rectangle class with private width and height attributes."""
@@ -37,4 +35,5 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
 
