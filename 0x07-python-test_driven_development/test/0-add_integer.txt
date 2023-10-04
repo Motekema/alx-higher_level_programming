@@ -1,0 +1,74 @@
+Description: Test cases for the add_integer function.
+
+# Test case 1: Testing with integers
+Input:
+5
+3
+
+Expected Output:
+8
+
+# Test case 2: Testing with floats
+Input:
+2.5
+3.5
+
+Expected Output:
+6
+
+# Test case 3: Testing with a mix of integer and float
+Input:
+4
+2.7
+
+Expected Output:
+6
+
+# Test case 4: Testing with negative integers
+Input:
+-5
+-3
+
+Expected Output:
+-8
+
+# Test case 5: Testing with negative floats
+Input:
+-2.5
+-3.5
+
+Expected Output:
+-6
+
+# Test case 6: Testing with a mix of negative integer and float
+Input:
+-4
+-2.7
+
+Expected Output:
+-7
+
+# Test case 7: Testing with one integer and one float
+Input:
+5
+3.6
+
+Expected Output:
+8
+
+# Test case 8: Testing with one float and one integer
+Input:
+2.8
+3
+
+Expected Output:
+5
+
+# Test case 9: Testing with zero
+Input:
+0
+0
+
+Expected Output:
+0
+
