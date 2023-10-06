@@ -9,7 +9,7 @@ def add_integer(a, b=98):
     ints before addition performed.
 
     Raises:
-        TypeError: This funtion If a or b is non-integer and non-float.
+        TypeError: If a or b is non-integer and non-float.
     """
     if not (isinstance(a, int) or isinstance(a, float)):
         raise TypeError("a must be an integer")
