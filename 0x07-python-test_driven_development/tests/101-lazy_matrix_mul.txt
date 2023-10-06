@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+"""
+Contains the matrix_mul function
+"""
+def matrix_mul(m_a, m_b):
+    """Multiply two matrices (lists of lists of integers/floats)."""
+
+    # Check if m_a is a list
+    if not isinstance(m_a, list):
+        raise TypeError("m_a must be a list")
+
+    # Check if m_b is a list
+    if not isinstance(m_b, list):
+        raise TypeError("m_b must be a list")
+
+    # Check if m_a is not empty
+    if not m_a:
+        raise ValueError("m_a can't be empty")
+
+    # Check if m_b is not empty
+    if not m_b:
+        raise ValueError("m_b can't be empty")
+
+    # Check if all elements of m_a are lists and of the same size
+    size_a = len(m_a[0])
+    for row_a in m_a:
+        if not isinstance(row_a, list):
+            raise TypeError("m_a should contain only lists")
+        if len(row_a) != size_a:
+            raise ValueError("each row of m_a must have the same size")
+
+    # Check if all elements of m_b are lists and of the same size
+    size_b = len(m_b[0])
+    for row_b in m_b:
+        if not isinstance(row_b, list):
+            raise TypeError("m_b should contain only lists")
+        if len(row_b) != size_b:
+            raise ValueError("each row of m_b must have the same size")
+
+    # Check if the matrices can be multiplied
+    if size_a != len(m_b):
+        raise ValueError("m_a and m_b can't be multiplied")
+
+    # Multiply the matrices
+    result = []
+    for i in range(len(m_a)):
+        row_result = []
+        for j in range(len(m_b[0])):
+            element = 0
+            for k in range(len(m_b)):
+                element += m_a[i][k] * m_b[k][j]
+            row_result.append(element)
+        result.append(row_result)
+
+    return result
+
