@@ -21,6 +21,5 @@ clean:
 	rm -f $(TARGET)
 
 # .PHONY rule to avoid conflicts with files named clean
-.PHONY: clean
-
+.PHONY: all clean
 
