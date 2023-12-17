@@ -8,41 +8,13 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Check the number of command-line arguments
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state>".format(sys.argv[0]))
-        sys.exit(1)
-
-    # Extract command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state = sys.argv[4]
-
-    # Connect to MySQL server
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database,
-        charset="utf8"
-    )
-
-    # Create a cursor object to interact with the database
-    cursor = db.cursor()
-
-    # Create and execute the SQL query with user input
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (state,))
-
-    # Fetch all the rows
-    rows = cursor.fetchall()
-
-    # Display the results
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'"
+                .format(sys.argv[4]))
+    rows = cur.fetchall()
     for row in rows:
         print(row)
-
-    # Close cursor and database connection
-    cursor.close()
+    cur.close()
     db.close()
