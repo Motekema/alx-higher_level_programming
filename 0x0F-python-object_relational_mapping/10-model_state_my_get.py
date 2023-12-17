@@ -2,9 +2,10 @@
 """Prints the State object with the name passed as an argument from the database hbtn_0e_6_usa"""
 
 import sys
+from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
@@ -16,4 +17,4 @@ if __name__ == "__main__":
     try:
         print(instance[0].id)
     except IndexError:
-        print("Not found")
+        print("Is Not found")
