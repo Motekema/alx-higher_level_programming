@@ -3,29 +3,17 @@
 
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
-    # Connect to the MySQL server
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
-
-    # Create a configured "Session" class
-    Session = Session(bind=engine)
-
-    # Create a Session
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
     session = Session()
-
-    # Query State object with the provided name and print the result
-    state_name = sys.argv[4]
-    state = session.query(State).filter(State.name == state_name).first()
-
-    if state:
-        print(state.id)
-    else:
+    instance = session.query(State).filter(State.name == (sys.argv[4],))
+    try:
+        print(instance[0].id)
+    except IndexError:
         print("Not found")
-
-    # Close the session
-    session.close()
