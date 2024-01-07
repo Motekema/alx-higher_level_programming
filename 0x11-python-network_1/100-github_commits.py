@@ -4,6 +4,7 @@ Script that lists 10 commits (from the most recent to oldest)
 of the repository “rails” by the user “rails” using GitHub API.
 """
 
+
 import requests
 import sys
 
