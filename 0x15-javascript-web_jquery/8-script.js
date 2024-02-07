@@ -1,5 +1,5 @@
-// Queries an API and fetches all movie titles then inserts them
-// into the UL#list_movies tag
+// Querie an API and fetched all movie titles then inserted them
+// into the UL#list_movies tags
 
 let url = 'https://swapi.co/api/films/?format=json';
 $.get(url, function (data) {
